@@ -1,6 +1,8 @@
 
 <h1>Chat with Database</h1>
 
+<h2>Ask any questions about data and explore insights.</h2>
+
 http://34.200.240.198:3003/chat-with-database
 
 <h3>n8n AI agent NuxtJS Frontend</h3>
