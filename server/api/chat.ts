@@ -10,9 +10,24 @@ export default defineEventHandler(async (event) => {
       method: 'POST',
       body: body
     })
-    return n8nResponse[0].output
+    if (Array.isArray(n8nResponse) && n8nResponse.length === 1) {
+      return n8nResponse[0].output
+    }
+    else {
+      throw createError({
+        statusCode: 500,
+        statusMessage: 'Processing Error',
+        message: 'Too many request'
+      })
+    }
 
   } catch (error) {
+    
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Processing Error',
+      message: 'Failed to process webhook data, please try later'
+    })
 
   }
 

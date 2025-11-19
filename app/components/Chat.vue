@@ -84,7 +84,14 @@ const sendMessage = async () => {
 
     isWaitingAgent.value = false;
     addAIAgentBubble(res);
-  } catch (error) {}
+  } catch (error) {
+    // show error text
+    var errorMessage =
+      error.data?.message || error.statusMessage || "Failed to send message";
+
+    isWaitingAgent.value = false;
+    addAIAgentBubble(errorMessage);
+  }
 };
 
 const addUserBubble = async () => {
